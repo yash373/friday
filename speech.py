@@ -13,8 +13,9 @@ class Speech:
             try:
                 self.r.adjust_for_ambient_noise(source, duration=0.5)
                 audio = self.r.listen(source)
-                MyText = self.r.recognize_google(audio)
+                text = self.r.recognize_google(audio)
                 text = text.lower()
+                return text
             except sr.RequestError as e:
                 print(f"Could not request results: {e}")
             except sr.UnknownValueError as e:

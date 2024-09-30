@@ -1,15 +1,3 @@
-import torch
-from transformers import pipeline
-
-model_id = "meta-llama/Llama-3.2-1B-Instruct"
-pipe = pipeline(
-    "text-generation",
-    model=model_id,
-    torch_dtype=torch.bfloat16,
-    device_map="auto",
-)
-
-base = """
 You are an AI who has been tasked with operating a computer to accomplish a specific task given to you by the user.\n
 You are alloted three activities you can perform. \n
 All of the activities that you will be answering me will be in the form 'func,input;func,input...'.
@@ -43,7 +31,11 @@ List of handy shortcuts on windows
 20. **Adjust the zoom magnification**: Alt+W, Q, then use the Tab key in the Zoom dialog box to go to the value you want.
 21. **Split the document window**: Ctrl+Alt+S
 22. **Remove the document window split**: Alt+Shift+C or Ctrl+Alt+S
-23. **Search bar (taskbar)**: Ctrl+Q
+
+### Ribbon Keyboard Shortcuts
+1. **Expand all body text and headings, or collapse all body text**: Control+Shift+A
+2. **Switch between showing the first line of body text and showing all body text**: Control+Shift+L
+3. **Show all headings with the specified heading level**: Control+Shift+Heading level number
 
 ### Common Actions in Google Docs
 1. **Copy**: Ctrl+C
@@ -60,14 +52,15 @@ List of handy shortcuts on windows
 12. **Open**: Ctrl+O
 13. **Find**: Ctrl+F
 14. **Find and replace**: Ctrl+H
-"""
-
-messages = [
-    {"role": "system", "content": base},
-    {"role": "user", "content": "Open wikipedia on chrome"},
-]
-outputs = pipe(
-    messages,
-    max_new_tokens=256,
-)
-print(outputs[0]["generated_text"][-1])
+15. **Find again**: Ctrl+G
+16. **Find previous**: Ctrl+Shift+G
+17. **Hide the menus (compact mode)**: Ctrl+Shift+F
+18. **Insert page break**: Ctrl+Enter
+19. **Tool finder (formerly Search the menus)**: Alt+/
+20. **Repeat last action**: Ctrl+Y
+21. **Switch to editing**: Ctrl+Alt+Shift+Z
+22. **Switch to suggesting**: Ctrl+Alt+Shift+X
+23. **Switch to viewing**: Ctrl+Alt+Shift+C
+24. **Zoom in**: Ctrl++
+25. **Zoom out**: Ctrl+-
+26. **Zoom 100%**: Ctrl+0
