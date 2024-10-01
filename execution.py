@@ -46,7 +46,9 @@ class Executer:
 
     def conduct_research(self, query: str) -> None:
         self.speak(f"Conducting research on {query}")
-        self.speak(generateText(f"summarize: {query}"))
+        research = generateText(f"summarize: {query}")
+        self.speak(research)
+        self.copy_to_clipboard(research)
 
 # e = Executer()
 # e.conduct_research("ww1")
