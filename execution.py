@@ -1,6 +1,7 @@
 import pyautogui
 from speech import Speech
 from research import generateText
+import time
 
 # functions of executer class
 # 1. opening applications
@@ -18,7 +19,10 @@ class Executer:
         self.voice.speak(text)
     
     def open_application(self, app: str) -> None:
-        pass
+        pyautogui.hotkey("win","q")
+        pyautogui.write(app)
+        time.sleep(0.2)
+        pyautogui.hotkey("enter")
         
     def copy_to_clipboard(self, text: str) -> None:
         pass
