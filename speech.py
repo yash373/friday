@@ -3,7 +3,7 @@ import pyttsx3
 
 class Speech:
     def __init__(self):
-        self.r = sr.self.r()
+        self.r = sr.Recognizer()
         self.engine = pyttsx3.init()
     
     def listen(self):
