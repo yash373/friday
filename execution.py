@@ -41,10 +41,11 @@ class Executer:
         webbrowser.open(f"https://www.youtube.com/results?search_query={query}")
 
     def search_reddit(self, query: str) -> None:
-        pass
+        self.speak(f"Opening results on reddit for {query}")
+        webbrowser.open(f"https://www.reddit.com/search/?q={query}")
 
     def conduct_research(self, query: str) -> None:
         pass
 
 # e = Executer()
-# e.search_youtube("sliding window")
+# e.search_reddit("sliding window")
