@@ -12,10 +12,11 @@ class Speech:
                 print("Listening...")
 
                 try:
-                    self.r.adjust_for_ambient_noise(source, duration=1)
+                    self.r.adjust_for_ambient_noise(source)
                     audio = self.r.listen(source)
                     text = self.r.recognize_google(audio)
                     text = text.lower()
+                    print(f"Recognized: {text}")
                     return text
                 except sr.RequestError as e:
                     print(f"Could not request results: {e}")

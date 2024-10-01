@@ -34,7 +34,9 @@ if __name__ == '__main__':
                 # print("will conduct research")
                 engine.conduct_research(query)
                 break
-            elif "search youtube" in query or "youtube tutorials" in query:
+            elif "search youtube" in query or "youtube tutorial" in query:
                 engine.search_youtube(query)
+            elif "search reddit" in query:
+                engine.search_reddit(query)
             else:
                 spch.speak("I couldn't get you")
