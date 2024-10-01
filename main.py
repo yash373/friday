@@ -38,5 +38,7 @@ if __name__ == '__main__':
                 engine.search_youtube(query)
             elif "search reddit" in query:
                 engine.search_reddit(query)
+            elif extract_link(query):
+                engine.open_url(extract_link(query))
             else:
                 spch.speak("I couldn't get you")
