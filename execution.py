@@ -2,6 +2,7 @@ import pyautogui
 from speech import Speech
 from research import generateText
 import time
+import pyperclip
 
 # functions of executer class
 # 1. opening applications
@@ -19,13 +20,16 @@ class Executer:
         self.voice.speak(text)
     
     def open_application(self, app: str) -> None:
+        self.speak(f"Opening {app}")
         pyautogui.hotkey("win","q")
         pyautogui.write(app)
         time.sleep(0.2)
         pyautogui.hotkey("enter")
+        pyautogui.hotkey("esc")
         
     def copy_to_clipboard(self, text: str) -> None:
-        pass
+        self.speak("Text was copied to clipboard")
+        pyperclip.copy(text)
 
     def open_url(self, text:str) -> None:
         pass
@@ -38,3 +42,6 @@ class Executer:
 
     def conduct_research(self, query: str) -> None:
         pass
+
+# e = Executer()
+# e.copy_to_clipboard("notion")
