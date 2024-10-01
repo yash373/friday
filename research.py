@@ -7,7 +7,7 @@ def generateText(text:str) -> str:
         "messages": [
             {
                 "role": "user",
-                "content": "who is the pm of india"
+                "content": text
             }
         ],
         "system_prompt": "",
