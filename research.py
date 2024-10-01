@@ -14,7 +14,7 @@ def generateText(text:str) -> str:
         "temperature": 0.9,
         "top_k": 5,
         "top_p": 0.9,
-        "max_tokens": 2000,
+        "max_tokens": 500,
         "web_access": False
     }
     headers = {
