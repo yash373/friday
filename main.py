@@ -5,7 +5,7 @@ import re
 engine = Executer()
 spch = Speech()
 
-keyword = "Arise"
+keyword = "friday"
 
 def extract_link(text: str) -> str:
     # Regular expression to match URLs with or without http/https
@@ -23,7 +23,16 @@ def extract_link(text: str) -> str:
 if __name__ == '__main__':
     while True:
         spch.listen_for_word(keyword)
-        query = spch.listen()
-        query = query.lower()
+        while True:
+            spch.speak("How can I serve you, master?")
+            query = spch.listen()
 
-        print(query)
+            if "exit" == query:
+                spch.speak("Exiting...")
+                break
+            elif "conduct research" in query:
+                # print("will conduct research")
+                engine.conduct_research(query)
+                break
+            else:
+                spch.speak("I couldn't get you")

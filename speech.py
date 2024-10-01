@@ -7,19 +7,22 @@ class Speech:
         self.engine = pyttsx3.init()
     
     def listen(self):
-        with sr.Microphone() as source:
-            print("Listening...")
+        while True:
+            with sr.Microphone() as source:
+                print("Listening...")
 
-            try:
-                self.r.adjust_for_ambient_noise(source, duration=0.5)
-                audio = self.r.listen(source)
-                text = self.r.recognize_google(audio)
-                text = text.lower()
-                return text
-            except sr.RequestError as e:
-                print(f"Could not request results: {e}")
-            except sr.UnknownValueError as e:
-                print(f"Could not get value: {e}")
+                try:
+                    self.r.adjust_for_ambient_noise(source, duration=1)
+                    audio = self.r.listen(source)
+                    text = self.r.recognize_google(audio)
+                    text = text.lower()
+                    return text
+                except sr.RequestError as e:
+                    print(f"Could not request results: {e}")
+                except sr.UnknownValueError as e:
+                    print(f"Could not get value: {e}")
+                except Exception as e:
+                    self.speak("I couldn't get you, can you repeat yourself again.")
     
     def listen_for_word(self ,word):
         with sr.Microphone() as source:
