@@ -45,7 +45,8 @@ class Executer:
         webbrowser.open(f"https://www.reddit.com/search/?q={query}")
 
     def conduct_research(self, query: str) -> None:
-        pass
+        self.speak(f"Conducting research on {query}")
+        self.speak(generateText(query))
 
 # e = Executer()
-# e.search_reddit("sliding window")
+# e.conduct_research("ww1")
