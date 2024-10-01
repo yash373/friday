@@ -32,12 +32,13 @@ class Executer:
         self.speak("Text was copied to clipboard")
         pyperclip.copy(text)
 
-    def open_url(self, text:str) -> None:
+    def open_url(self ,text:str) -> None:
         self.speak(f"Opening {text}")
         webbrowser.open(text)
     
     def search_youtube(self, query: str) -> None:
-        pass
+        self.speak(f"Opening results on youtube for {query}")
+        webbrowser.open(f"https://www.youtube.com/results?search_query={query}")
 
     def search_reddit(self, query: str) -> None:
         pass
@@ -46,4 +47,4 @@ class Executer:
         pass
 
 # e = Executer()
-# e.open_url("github.com")
+# e.search_youtube("sliding window")
