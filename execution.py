@@ -23,8 +23,8 @@ class Executer:
     def open_application(self, app: str) -> None:
         self.speak(f"Opening {app}")
         pyautogui.hotkey("win","q")
-        pyautogui.write(app)
-        time.sleep(0.2)
+        pyautogui.write(app,0.1)
+        time.sleep(0.5)
         pyautogui.hotkey("enter")
         pyautogui.hotkey("esc")
         

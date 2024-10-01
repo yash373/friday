@@ -7,6 +7,14 @@ spch = Speech()
 
 keyword = "friday"
 
+applications = ["explorer","notion","settings","whatsaap","notepad","vs code","proton vpn", "task manager","control panel","google drive","edge", "firefox", "chrome", "arc", "nodejs", "wsl", "spotify", "word", "excel", "powerpoint", "writer"]
+
+def check_open_application(query: str) -> str|bool:
+    for i in applications:
+        if i.lower() in query:
+            return i
+    return False
+
 def extract_link(text: str) -> str:
     # Regular expression to match URLs with or without http/https
     url_pattern = r'((https?://)?[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}(/[^\s]*)?)'
@@ -40,5 +48,7 @@ if __name__ == '__main__':
                 engine.search_reddit(query)
             elif extract_link(query):
                 engine.open_url(extract_link(query))
+            elif check_open_application(query):
+                engine.open_application(check_open_application(query))
             else:
                 spch.speak("I couldn't get you")
