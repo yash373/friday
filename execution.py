@@ -3,6 +3,7 @@ from speech import Speech
 from research import generateText
 import time
 import pyperclip
+import webbrowser
 
 # functions of executer class
 # 1. opening applications
@@ -32,7 +33,8 @@ class Executer:
         pyperclip.copy(text)
 
     def open_url(self, text:str) -> None:
-        pass
+        self.speak(f"Opening {text}")
+        webbrowser.open(text)
     
     def search_youtube(self, query: str) -> None:
         pass
@@ -44,4 +46,4 @@ class Executer:
         pass
 
 # e = Executer()
-# e.copy_to_clipboard("notion")
+# e.open_url("github.com")
