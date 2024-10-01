@@ -1,33 +1,36 @@
 import pyautogui
 from speech import Speech
+from research import generateText
 
-# raw = "func,val;func,val"
+# functions of executer class
+# 1. opening applications
+# 2. copying to clipboard
+# 3. opeing urls
+# 4. search youtube tutorials
+# 5. search on reddit
+# 6. conduct research
 
 class Executer:
     def __init__(self) -> None:
+        self.voice = Speech()
+    
+    def speak(self, text:str) -> None:
+        self.voice.speak(text)
+    
+    def open_application(self, app: str) -> None:
+        pass
+        
+    def copy_to_clipboard(self, text: str) -> None:
         pass
 
-    def converter(self, s:str): #returns [[func, val]]
-        steps = s.split(";")
-        res = []
-        for step in steps:
-            res.append(step.split(","))
-        return res
+    def open_url(self, text:str) -> None:
+        pass
+    
+    def search_youtube(self, query: str) -> None:
+        pass
 
-    def hotkey(self, s:str) -> None:
-        chars = s.split("+")
-        pyautogui.hotkey(chars)
+    def search_reddit(self, query: str) -> None:
+        pass
 
-    def typeWords(self, s:str) -> None:
-        pyautogui.write(s,0.1)
-
-    def execute(self, steps, speech: Speech):
-        for step in steps:
-            if step[0] == "speak":
-                speech.speak(step[1])
-            elif step[0] == "hkey":
-                self.hotkey(step[1])
-            elif step[0] == "type":
-                self.typeWords(step[1])
-            else:
-                print("Invalid step")
+    def conduct_research(self, query: str) -> None:
+        pass
