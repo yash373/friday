@@ -51,4 +51,4 @@ if __name__ == '__main__':
             elif check_open_application(query):
                 engine.open_application(check_open_application(query))
             else:
-                spch.speak("I couldn't get you")
+                engine.conduct_research(query)

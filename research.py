@@ -15,7 +15,7 @@ def generateText(text:str) -> str:
         "top_k": 5,
         "top_p": 0.9,
         "max_tokens": 500,
-        "web_access": False
+        "web_access": True
     }
     headers = {
         "x-rapidapi-key": "2010442decmshc62de9e7247e8e1p15b96cjsn1cf015d3184b",
